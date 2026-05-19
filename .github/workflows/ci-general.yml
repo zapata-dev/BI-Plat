@@ -1,0 +1,42 @@
+name: CI — General
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+jobs:
+  repo-structure:
+    name: Verificar estructura del repo
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Verificar carpetas obligatorias
+        run: |
+          for dir in frontend backend infra pipeline docs; do
+            if [ ! -d "$dir" ]; then
+              echo "ERROR: carpeta $dir no existe"
+              exit 1
+            fi
+          done
+          echo "Estructura del repo OK"
+
+      - name: Verificar que .env no está en el repo
+        run: |
+          if git ls-files | grep -E '^\.env$|^.*\.env$' | grep -v '.env.example'; then
+            echo "ERROR: archivo .env encontrado en el repo"
+            exit 1
+          fi
+          echo "Sin archivos .env en el repo OK"
+
+      - name: Verificar que no hay service account keys
+        run: |
+          if git ls-files | grep -E 'service.?account.*\.json|.*key.*\.json'; then
+            echo "ERROR: posible service account key en el repo"
+            exit 1
+          fi
+          echo "Sin service account keys OK"
