@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git fetch *)",
+      "Bash(git checkout *)",
+      "Bash(git pull *)",
+      "Bash(terraform version *)",
+      "PowerShell(terraform version)",
+      "Bash(file .github/workflows/*.yml)",
+      "Bash(python -c \"import yaml; print\\('ci-infra:', yaml.safe_load\\(open\\('.github/workflows/ci-infra.yml', encoding='utf-8'\\)\\)['name']\\); print\\('ci-general:', yaml.safe_load\\(open\\('.github/workflows/ci-general.yml', encoding='utf-8'\\)\\)['name']\\)\")",
+      "Bash(git push *)",
+      "Bash(gh --version)",
+      "Bash(gh pr create --base main --head feat/F0-02-github-actions-ci --title 'feat\\(ci\\): workflows de GitHub Actions para validación de PRs \\(F0-02\\)' --body ' *)"
+    ]
+  }
+}
