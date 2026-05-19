@@ -1,4 +1,4 @@
-# Plataforma BI Zapata
+﻿# Plataforma BI Zapata
 
 Plataforma interna de Business Intelligence para Corporación Zapata.
 

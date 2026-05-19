@@ -1,4 +1,4 @@
-# Secretos — NUNCA en el repo
+﻿# Secretos — NUNCA en el repo
 .env
 *.env
 *.json.key
@@ -19,7 +19,6 @@ dist/
 infra/.terraform/
 infra/*.tfstate
 infra/*.tfstate.backup
-infra/.terraform.lock.hcl
 
 # OS
 .DS_Store
