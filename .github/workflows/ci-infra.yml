@@ -1,0 +1,41 @@
+name: CI — Infra (Terraform)
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'infra/**'
+  push:
+    branches: [main]
+    paths:
+      - 'infra/**'
+
+jobs:
+  terraform-validate:
+    name: Terraform fmt + validate
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: infra
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: "1.15.3"
+
+      - name: Terraform Format Check
+        run: terraform fmt -check -recursive
+        # Falla si algún archivo .tf no está formateado.
+        # Para formatear localmente: terraform fmt -recursive
+
+      - name: Terraform Init (sin backend remoto)
+        run: terraform init -backend=false
+        # -backend=false descarga providers sin conectar a GCS.
+        # No requiere credenciales de GCP.
+
+      - name: Terraform Validate
+        run: terraform validate
