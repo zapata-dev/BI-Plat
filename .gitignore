@@ -19,7 +19,6 @@ dist/
 infra/.terraform/
 infra/*.tfstate
 infra/*.tfstate.backup
-infra/.terraform.lock.hcl
 
 # OS
 .DS_Store
