@@ -24,3 +24,4 @@ infra/*.tfstate.backup
 .DS_Store
 Thumbs.db
 .claude/
+.claude/
