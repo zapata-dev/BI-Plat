@@ -17,6 +17,7 @@ gcloud storage buckets create gs://zapata-bi-dev-tfstate \
 ```bash
 terraform init
 ```
+Si el bucket no existe todavia, `terraform init` falla con `bucket does not exist`.
 
 ## Planear
 ```bash
