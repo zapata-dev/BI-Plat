@@ -1,3 +1,6 @@
 project_id  = "zapata-bi-dev"
 region      = "us-central1"
 environment = "dev"
+
+db_name = "zapata_bi"
+db_user = "zapata_app"

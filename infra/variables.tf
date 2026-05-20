@@ -15,3 +15,15 @@ variable "environment" {
   description = "Ambiente: dev | prod"
   default     = "dev"
 }
+
+variable "db_name" {
+  type        = string
+  description = "Nombre de la base de datos dentro de Cloud SQL"
+  default     = "zapata_bi"
+}
+
+variable "db_user" {
+  type        = string
+  description = "Usuario de la aplicación en Cloud SQL"
+  default     = "zapata_app"
+}
