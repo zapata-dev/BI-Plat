@@ -4,3 +4,6 @@ environment = "dev"
 
 db_name = "zapata_bi"
 db_user = "zapata_app"
+
+bq_location  = "northamerica-south1"
+gcs_location = "northamerica-south1"

@@ -27,3 +27,15 @@ variable "db_user" {
   description = "Usuario de la aplicación en Cloud SQL"
   default     = "zapata_app"
 }
+
+variable "bq_location" {
+  type        = string
+  description = "Región de BigQuery para los datasets"
+  default     = "northamerica-south1"
+}
+
+variable "gcs_location" {
+  type        = string
+  description = "Región del bucket de Cloud Storage"
+  default     = "northamerica-south1"
+}
